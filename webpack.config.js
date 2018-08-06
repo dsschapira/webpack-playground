@@ -8,6 +8,25 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        port: 4200
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['eslint-loader']
+            }
+
+        ]
+    },
+    resolve: {
+        extensions: ['.js','.jsx']
     }
 };
